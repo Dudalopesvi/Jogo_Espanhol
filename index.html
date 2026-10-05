@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Juega+ : juegos interactivos para aprender español y descubrir el mundo hispanohablante.">
+<title>Juega+ · ¡Aprende español jugando!</title>
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="top">
+  <nav class="nav" aria-label="Principal">
+    <button type="button" class="logo" data-go="inicio" aria-label="Juega+, ir al inicio">Juega<span>+</span></button>
+    <ul id="menu">
+      <li><button type="button" data-nav="inicio" data-go="inicio">Inicio</button></li>
+      <li><button type="button" data-nav="juegos" data-go="inicio" data-scroll="juegos">Juegos</button></li>
+      <li><button type="button" data-nav="mapa" data-go="mapa">Mapa</button></li>
+      <li><button type="button" data-nav="puntos" data-go="puntos">Puntuación</button></li>
+    </ul>
+    <button type="button" class="score" data-go="puntos" aria-label="Ver mi puntuación total">⭐ Puntuación: <b id="score-top">0</b></button>
+  </nav>
+</header>
+
+<main id="main">
+  <noscript>Activa JavaScript para poder jugar.</noscript>
+
+  <section id="inicio" class="screen" aria-labelledby="h-inicio">
+    <div class="hero">
+      <div>
+        <span class="eyebrow">Aprendizaje interactivo</span>
+        <h1 id="h-inicio" tabindex="-1">¡Aprende <em>español</em> jugando!</h1>
+        <p class="lead">Pon a prueba tus conocimientos, descubre nuevas palabras y diviértete con nuestros juegos interactivos.</p>
+        <div class="actions">
+          <button type="button" class="btn primary" data-go="puzzle">Empezar a jugar</button>
+          <button type="button" class="btn secondary" data-go="inicio" data-scroll="juegos">Explorar juegos</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg class="sun" viewBox="0 0 120 120"><circle cx="60" cy="60" r="22" fill="#F6C945" fill-opacity=".55"/><path d="M60 10v14M60 96v14M10 60h14M96 60h14M25 25l10 10M85 85l10 10M95 25 85 35M35 85 25 95" stroke="#7C5CFC" stroke-opacity=".3" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        <svg id="hero-map" class="hero-map" viewBox="0 0 1000 501"></svg>
+        <svg class="mount" viewBox="0 0 400 80" preserveAspectRatio="none"><path d="M0 80V52l50-30 40 26 60-40 70 48 50-30 60 36 70-44V80Z" fill="#7C5CFC" fill-opacity=".07"/><path d="M0 52l50-30 40 26 60-40 70 48 50-30 60 36 70-44" fill="none" stroke="#7C5CFC" stroke-opacity=".25" stroke-width="2"/></svg>
+        <div class="fc fc-p"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fc fc-w"><b class="g">J</b><b class="y">U</b><b>E</b><b class="g">G</b><b class="g">A</b></div>
+        <div class="fc fc-l"><b>Ñ</b><b>¿</b><b>¡</b></div>
+        <div class="fc fc-f"><img data-flag="colombia" alt=""><img data-flag="chile" alt=""><img data-flag="peru" alt=""><img data-flag="espana" alt=""></div>
+        <div class="fc fc-c"><small>Pista 1 de 4</small>«Soy una artista mexicana.»</div>
+      </div>
+    </div>
+
+    <ol class="flow" aria-label="Cómo funciona Juega+">
+      <li><button type="button" data-go="inicio" data-scroll="juegos"><span><b>Aprende español</b><small>Palabras, pistas y cultura</small></span></button></li>
+      <li><button type="button" data-go="mapa"><span><b>Descubre países</b><small>Explora el mapa</small></span></button></li>
+      <li><button type="button" data-go="puzzle"><span><b>Juega</b><small>Tres desafíos</small></span></button></li>
+      <li><button type="button" data-go="puntos"><span><b>Gana puntos</b><small>Mira tu progreso</small></span></button></li>
+    </ol>
+
+    <div class="divider" aria-hidden="true"></div>
+    <section id="juegos" class="section" aria-labelledby="h-juegos">
+      <h2 id="h-juegos">Elige tu juego</h2>
+      <p class="sub">Tres desafíos para poner a prueba tu español.</p>
+      <div class="cards">
+        <article class="card c-teal"><span class="ico" aria-hidden="true">🧩</span><h3>Rompecabezas</h3><p>Ordena las piezas y completa el desafío.</p><span class="meta">20 banderas · 3×3 a 5×5</span><button type="button" class="btn link" data-go="puzzle">Jugar ahora →</button></article>
+        <article class="card c-purple"><span class="ico" aria-hidden="true">🕵️</span><h3>¿Quién soy?</h3><p>Lee las pistas y descubre el personaje misterioso.</p><span class="meta">15+ personajes</span><button type="button" class="btn link" data-go="quien">Jugar ahora →</button></article>
+        <article class="card c-mix"><span class="ico" aria-hidden="true">🔤</span><h3>Termo</h3><p>Adivina la palabra secreta en seis intentos.</p><span class="meta">5 letras · 6 intentos</span><button type="button" class="btn link" data-go="termo">Jugar ahora →</button></article>
+      </div>
+    </section>
+
+    <div class="divider" aria-hidden="true"></div>
+    <section class="section teaser" aria-labelledby="h-teaser">
+      <div><h2 id="h-teaser">El mundo hispanohablante</h2>
+      <p class="sub">Descubre dónde se habla español y explora la diversidad de sus países.</p></div>
+      <button type="button" class="btn secondary" data-go="mapa">Explorar el mapa →</button>
+    </section>
+  </section>
+
+  <section id="puzzle" class="screen narrow" hidden aria-labelledby="h-puzzle">
+    <button type="button" class="back" data-go="inicio">← Volver</button>
+    <h2 id="h-puzzle" tabindex="-1">Rompecabezas</h2>
+    <p class="sub">Intercambia las piezas para reconstruir la bandera.</p>
+    <div class="panel">
+      <p class="country">Bandera de <b id="p-country"></b></p>
+      <div class="pills">
+        <div class="pill"><span>Movimientos</span><b id="p-moves">0</b></div>
+        <div class="pill"><span>Tiempo</span><b id="p-time">00:00</b></div>
+        <div class="pill"><span>Puntuación</span><b id="p-score">0</b></div>
+      </div>
+      <div id="board" aria-label="Tablero del rompecabezas de banderas"></div>
+      <p id="p-msg" class="msg" aria-live="polite"></p>
+      <div class="row"><button type="button" class="btn primary" data-act="shuffle">Mezclar</button><button type="button" class="btn secondary" data-act="newp">Nuevo juego</button></div>
+      <div class="opts">
+        <div role="group" aria-labelledby="l-diff"><span class="optlabel" id="l-diff">Dificultad</span>
+          <div class="seg"><button type="button" data-diff="3" aria-pressed="true">Fácil</button><button type="button" data-diff="4" aria-pressed="false">Medio</button><button type="button" data-diff="5" aria-pressed="false">Difícil</button></div></div>
+        <div role="group" aria-labelledby="l-mode"><span class="optlabel" id="l-mode">País</span>
+          <div class="seg"><button type="button" data-mode="random" aria-pressed="true">País aleatorio</button><button type="button" data-mode="pick" aria-pressed="false">Elegir país</button></div></div>
+        <div id="p-picker" class="picker" role="group" aria-label="Elegir país" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="quien" class="screen narrow" hidden aria-labelledby="h-quien">
+    <button type="button" class="back" data-go="inicio">← Volver</button>
+    <h2 id="h-quien" tabindex="-1">¿Quién soy?</h2>
+    <p class="sub">Lee las pistas y descubre el personaje.</p>
+    <div class="panel qpanel">
+      <div class="pills">
+        <div class="pill"><span>Pista</span><b id="q-count">1 de 4</b></div>
+        <div class="pill"><span>Puntos posibles</span><b id="q-pts">1000</b></div>
+      </div>
+      <div class="deck">
+        <div id="qwrap" class="cardwrap" role="group" tabindex="0" aria-label="Carta del personaje secreto">
+          <div id="qflip" class="flipper">
+            <div id="q-front" class="qface qfront">
+              <span class="qlabel">¿QUIÉN SOY?</span>
+              <span class="qicon" aria-hidden="true">🕵️</span>
+              <p class="qsub">Personaje secreto</p>
+              <p class="qsub2">Descubre el personaje. Toca la carta para ver las pistas.</p>
+              <span class="swipehint" aria-hidden="true">← Desliza →</span>
+            </div>
+            <div id="q-back" class="qface qback">
+              <span class="qlabel">🕵️ ¿Quién soy?</span>
+              <span class="chip" id="q-type"></span>
+              <p class="qpista">PISTA #<b id="q-n">1</b></p>
+              <ol id="q-clues" class="clues" aria-label="Pistas"></ol>
+              <div id="q-reveal" class="reveal" hidden></div>
+              <span class="swipehint" aria-hidden="true">← Desliza →</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row deckctl">
+        <button type="button" class="btn ghost sm" data-act="qprev">↶ Volver</button>
+        <button type="button" class="btn ghost sm" data-act="qflip">🔄 Girar carta</button>
+        <button type="button" class="btn ghost sm" data-act="qnext">↷ Siguiente</button>
+      </div>
+      <div id="q-play">
+        <div class="row"><button type="button" class="btn secondary" id="q-more" data-act="hint">Nueva pista</button></div>
+        <form id="q-form" autocomplete="off">
+          <label for="q-input">¿Quién crees que soy?</label>
+          <input id="q-input" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" enterkeyhint="send" maxlength="60" placeholder="Escribe tu respuesta...">
+          <div class="row"><button type="submit" class="btn primary" id="q-guess">Adivinar</button></div>
+        </form>
+      </div>
+      <div id="q-next" class="row" hidden><button type="button" class="btn primary" data-act="qnext">Siguiente personaje</button></div>
+      <p id="q-msg" class="msg" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="termo" class="screen narrow" hidden aria-labelledby="h-termo">
+    <button type="button" class="back" data-go="inicio">← Volver</button>
+    <h2 id="h-termo" tabindex="-1">Termo</h2>
+    <p class="sub">Adivina la palabra secreta.</p>
+    <div class="panel">
+      <div class="pills">
+        <div class="pill"><span>Intento</span><b id="t-att">0/6</b></div>
+        <div class="pill"><span>Puntos posibles</span><b id="t-pts">1000</b></div>
+      </div>
+      <div class="gridwrap">
+        <div id="grid" role="grid" aria-label="Tablero de Termo"></div>
+        <label class="sr" for="t-input">Escribe tu palabra de 5 letras</label>
+        <input id="t-input" class="tinput" type="text" inputmode="text" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" maxlength="5" enterkeyhint="send" aria-describedby="t-hint">
+      </div>
+      <p id="t-hint" class="legend"></p>
+      <p id="t-msg" class="msg" aria-live="polite"></p>
+      <div class="row"><button type="button" class="btn primary" data-act="sendword">Enviar</button><button type="button" class="btn secondary" data-act="newt">Nuevo juego</button><button type="button" class="btn ghost" id="t-kbtoggle" data-act="togglekb" aria-pressed="false" aria-controls="kb">Teclado del juego</button></div>
+      <div id="kb" aria-label="Teclado virtual opcional"></div>
+      <p class="legend">✓ letra en su lugar · ● letra en otra posición · ✕ letra que no está</p>
+    </div>
+  </section>
+
+  <section id="mapa" class="screen" hidden aria-labelledby="h-mapa">
+    <button type="button" class="back" data-go="inicio">← Volver</button>
+    <h2 id="h-mapa" tabindex="-1">🌎 El mundo hispanohablante</h2>
+    <p class="sub">Descubre dónde se habla español y explora la diversidad de sus países.</p>
+    <div class="panel wide">
+      <div class="seg" role="group" aria-label="Región del mapa">
+        <button type="button" data-view="mundo" aria-pressed="true">Mundo</button><button type="button" data-view="america" aria-pressed="false">América</button><button type="button" data-view="europa" aria-pressed="false">Europa</button><button type="button" data-view="africa" aria-pressed="false">África</button>
+      </div>
+      <div class="worldwrap"><svg id="world" viewBox="0 0 1000 501" role="group" aria-label="Mapa-múndi con los países donde el español es idioma oficial o nacional"></svg><div id="map-tip" class="tip" hidden></div></div>
+      <ul class="legend-map">
+        <li><i style="background:var(--teal)"></i>Español oficial o nacional</li>
+        <li><i style="background:var(--purple)"></i>Bandera completada</li>
+        <li><i style="background:#E5E7EF"></i>Otros países</li>
+      </ul>
+      <div id="map-card" class="mapcard" aria-live="polite">Selecciona un país en el mapa o en la lista.</div>
+      <div id="map-list" class="chips" role="group" aria-label="Países hispanohablantes"></div>
+      <p class="small">Lista del proyecto: 20 países con español oficial o nacional. Puerto Rico es un territorio de EE. UU. y no se muestra como país. Fuente del mapa: Natural Earth.</p>
+    </div>
+  </section>
+
+  <section id="puntos" class="screen narrow" hidden aria-labelledby="h-puntos">
+    <button type="button" class="back" data-go="inicio">← Volver</button>
+    <h2 id="h-puntos" tabindex="-1">Puntuación</h2>
+    <p class="sub">Tu progreso se guarda en este navegador.</p>
+    <div class="bigscore"><span>⭐ Puntuación total</span><b id="s-total">0</b></div>
+    <div class="results">
+      <div class="rcard"><b id="s-games">0</b><span>🎮 Juegos realizados</span></div>
+      <div class="rcard"><b id="s-wins">0</b><span>🏆 Victorias</span></div>
+      <div class="rcard"><b id="s-best">0</b><span>🥇 Mejor puntuación</span></div>
+      <div class="rcard"><b id="s-found">0/20</b><span>🌎 Países descubiertos</span></div>
+    </div>
+    <div class="panel pgames">
+      <h3>Por juego</h3>
+      <div class="grow"><span>🧩 Rompecabezas</span><b><i id="s-puzzle">0</i> puntos</b><div class="bar"><span id="bar-puzzle"></span></div></div>
+      <div class="grow"><span>🕵️ ¿Quién soy?</span><b><i id="s-quien">0</i> puntos</b><div class="bar"><span id="bar-quien"></span></div></div>
+      <div class="grow"><span>🔤 Termo</span><b><i id="s-termo">0</i> puntos</b><div class="bar"><span id="bar-termo"></span></div></div>
+      <div class="row"><button type="button" class="btn primary" data-go="puzzle">Seguir jugando</button><button type="button" class="btn ghost" data-act="resetstats">Reiniciar estadísticas</button></div>
+    </div>
+  </section>
+</main>
+
+<dialog id="modal" class="modal" aria-labelledby="m-title"><div id="m-body" class="mbody"></div></dialog>
+
+<footer class="foot">
+  <svg viewBox="0 0 48 32" width="48" height="32" aria-hidden="true"><path d="M24 30C24 18 14 10 4 8c0 12 8 20 20 22Z" fill="#48DCCB" fill-opacity=".35"/><path d="M24 30c0-12 10-20 20-22 0 12-8 20-20 22Z" fill="#7C5CFC" fill-opacity=".25"/></svg>
+  <p><b>Juega<span>+</span></b> · Aprende español jugando.</p>
+  <p class="small">Banderas: flag-icons (MIT) · Mapa: Natural Earth (dominio público) vía world-atlas.</p>
+</footer>
+<script src="js/world.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
