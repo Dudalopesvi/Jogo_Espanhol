@@ -13,7 +13,6 @@
 
   /* ---------- Datos ---------- */
   const CHARS = [
-
     ['Anitta', 1, 'anitta', ['Soy una cantante brasileña.', 'Mi nombre real es Larissa Machado.', 'Canto en portugues, español e ingles.', 'Una de mis canciones famosas es «Envolver».']],
     ['Virginia Fonseca', 1, 'virginiafonseca', ['Soy una influencer brasileña.', 'Soy conocida por mis redes sociales.', 'Tambien trabajo con entretenimiento y negocios.', 'Tengo millones de seguidores en internet.']],
     ['Maisa Silva', 1, 'maisa', ['Soy una actriz y presentadora brasileña.', 'Comence mi carrera en television siendo niña.', 'Participe en novelas y peliculas.', 'Tambien soy muy conocida en las redes sociales.']],
