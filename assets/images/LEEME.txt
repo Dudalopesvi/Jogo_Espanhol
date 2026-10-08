@@ -1,2 +1,0 @@
-Mapa-mundi: Natural Earth (dominio publico) via world-atlas (ISC); nombres via i18n-iso-countries (MIT). Datos en js/world.js.
-Banderas: flag-icons (MIT) en assets/flags/.
